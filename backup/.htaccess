@@ -1,0 +1,15 @@
+Options +FollowSymLinks
+ErrorDocument 404 https://google.com
+RewriteEngine on
+
+RewriteRule ^index$ index.php [L]
+RewriteRule ^rest/(.*)$ index.php?act=$1 [L]
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+</IfModule>
+
+
